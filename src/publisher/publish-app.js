@@ -1,4 +1,5 @@
 var fs = require("fs-extra");
+const Setup = require("./platforms/Setup");
 const helpers = require("../helpers/fileHelpers");
 
 const getApplicationJson = (input) => {
@@ -20,7 +21,8 @@ const getOutputDirectory = dir => {
     let directory;
     if (!fs.existsSync(dir)){
         try {
-            directory = helpers.createDirectoryIfNotExists(dir);
+            debugger;
+            // directory = helpers.createDirectoryIfNotExists(dir);
         } catch (error) {
             console.error("No such directory", error);
         }
@@ -30,17 +32,28 @@ const getOutputDirectory = dir => {
     return directory;
 }
 const publish = ( name, input, output, platform ) => {
+    const targetDirectory = `${output}/${name}`;
     let applicationJSON = getApplicationJson(input);
+
     if(applicationJSON) {
-        if (!fs.pathExistsSync(output)){
+        // check if the application directory already exists or if we have to create a new application directory
+        if (!fs.pathExistsSync(targetDirectory)){
+            debugger;
             // we don't have an output directory, what to do now? create one?
+            // we need to know the target platform and call the setup routine for setting up a new next or nuxt project
+            console.log(`Setting up a new ${platform.toUpperCase()} Project`);
+            helpers.createDirectoryIfNotExists(targetDirectory);
+            Setup.copyProjectFiles(targetDirectory, platform);
+        } else {
+            debugger;
         }
         // TODO:
         // check if we already have a valid setup for this output mode.
         // if we don't have a setup (empty directory or we just created a directory, then copy the template files for this output format to the output directory)
     }
     debugger;
-
+    console.log("Gathered the following information:")
+    console.log(`Application Name: ${name}\nApplication Description: ${input}\nOutput Directory: ${output}\nTarget Platform: ${platform}`)
     console.log("reading done");
 }
 
