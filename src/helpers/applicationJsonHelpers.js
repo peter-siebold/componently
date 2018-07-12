@@ -19,6 +19,32 @@ const getApplicationNameFromJSON = (json) => {
     return name;
 }
 
+const getApplicationJson = (input) => {
+    let jsonFile;
+    let applicationJSON;
+    try {
+        jsonFile = fs.readFileSync(input);  
+    } catch (error) {
+        console.error("An error occurred when opening the application.json file", error);
+    }
+    try {
+        applicationJSON = JSON.parse(jsonFile);
+    } catch (error) {
+        console.error("An error ocurred while parsing the application.json", error);
+    }
+    return applicationJSON;
+}
+
+const getPages = json => {
+    let pages = [];
+    if(json && json.application && json.application.pages){
+        pages = [...json.application.pages];
+    }
+    return pages;
+}
+
 module.exports = {
-    getApplicationNameFromJSON
+    getApplicationNameFromJSON,
+    getApplicationJson,
+    getPages
 }
