@@ -1,9 +1,10 @@
 const fs = require("fs-extra");
 const fileHelpers = require("../../../helpers/fileHelpers");
+const markupTransformer = require("../MarkupTransformer");
 const config = require("./config");
 
 const generateTemplate = page => {
-    const markup = `just a dummy`;
+    let markup      = page.children.map(child => markupTransformer.generateMarkup(child)).join("\t");
     const template = `<template>\n\t<div>\n\t${markup}\n\t</div>\n</template>`;
     return template;
 }

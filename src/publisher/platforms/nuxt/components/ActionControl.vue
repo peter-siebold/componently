@@ -1,5 +1,5 @@
 <template>
-     <a :class="className" >This is an ActionControl</a>
+     <a :class="className">This is an ActionControl</a>
 </template>
 <script>
 
