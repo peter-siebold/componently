@@ -2,10 +2,8 @@
 
 ## Overview
 
-Componently is a Component Framework that can create Next / Nuxt Page Components from a given JSON Description -> used as a backend for the guidanced Rapid GUI Development Tool.
-
+Componently is a case study on how to convert a JSON description of an application to an actual Vue2/Nuxt App.
 
 ## Usage
 
-node app.js -i jsonfile -o output-directory -m mode[next|nuxt]
-
+node app.js -n="application name" -i="application.json" -o="output directory"

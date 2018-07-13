@@ -12,12 +12,12 @@ function fromDir(startPath,filter,callback){
         var filename=path.join(startPath,files[i]);
         var stat = fs.lstatSync(filename);
         if (stat.isDirectory()){
-            fromDir(filename,filter,callback); //recurse
+            fromDir(filename,filter,callback);
         }
         else if (filter.test(filename)) callback(filename);
     };
 };
-const createDirectoryIfNotExists =(dir) => {
+const createDirectoryIfNotExists = async(dir) => {
     try {
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
@@ -27,9 +27,19 @@ const createDirectoryIfNotExists =(dir) => {
         console.error("An error occurred while creating directory", error);
     }
 }
-
-
+const buildPath = (...parts) => {
+    let result ="";
+    parts.forEach(part => {
+        if(result.match(/\/+$/) || result === ""){
+            result += part
+        } else {
+            result += "/" + part;
+        }
+    })
+    return result;
+}
 module.exports = {
     fromDir,
-    createDirectoryIfNotExists
+    createDirectoryIfNotExists,
+    buildPath
 }

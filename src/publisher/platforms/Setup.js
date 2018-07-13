@@ -3,10 +3,9 @@ const templateDirectories = {
     "nuxt": `${__dirname}/../../templates/nuxt_setup/`,
     "next": `${__dirname}/../../templates/next_setup/`
 }
-const copyProjectFiles = (directory, platform) => {
+const copyProjectFiles = async (directory, platform) => {
     let templateDir = templateDirectories[platform || "nuxt"];
-
-    fs.copy(templateDir, directory,  (err) => {
+    await fs.copy(templateDir, directory,  (err) => {
         if (err) {
           console.error(err);
         } else {
