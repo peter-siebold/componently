@@ -1,3 +1,5 @@
 node_modules/
 sample/
 apps/
+applications/
+.DS_Store
