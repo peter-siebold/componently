@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "build:example": "node app.js -n=\"Basic_Application\" -i=\"./example_app.json\" -o=\"./applications\" -m=\"app\" -f=\"nuxt\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.1.0"
+    "@types/node": "^10.5.2",
+    "eslint": "^5.1.0",
+    "typescript": "^2.9.2"
   },
   "dependencies": {
     "fs-extra": "^6.0.1",

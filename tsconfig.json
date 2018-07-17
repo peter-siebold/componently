@@ -1,0 +1,88 @@
+{
+    "include": ["src/**/*.ts"],
+    "exclude": [
+        "node_modules"
+    ],
+    "compilerOptions": {
+        // --- Basic Options ---
+        // Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'.
+        "target": "es2017",
+        // Specify module code generation: 'commonjs', 'amd', 'system', 'umd', 'es2015' or 'esnext'.
+        "module": "esnext",
+        // Specify module resolution strategy: 'node' or 'classic' (default).
+        "moduleResolution": "node",
+        // Allow JavaScript files to be compiled.
+        "allowJs": true,
+        // Allow default imports from modules with no default export.
+        "allowSyntheticDefaultImports": true,
+        // Report errors in .js files.
+        // Can't enable this one, due to i18n and locales seem not predictable.
+        "checkJs": false,
+        // Generates corresponding '.d.ts' file.
+        // "declaration": true,
+        // Generates corresponding '.map' file.
+        "sourceMap": true,
+        // Redirect output structure to the directory.
+        "outDir": "dist",
+        // Enables experimental support for ES2016 decorators.
+        "experimentalDecorators": true,
+        // Emit design-type metadata for decorated declarations in source.
+        "emitDecoratorMetadata": true,
+        // Specifies the end of line sequence to be used when emitting files: 'CRLF' (dos) or 'LF' (unix)
+        "newLine": "LF",
+        // Do not emit declarations for code that has an '@internal' annotation.
+        "stripInternal": true,
+        // --- Strict Type-Checking Options ---
+        // Enable all strict type-checking options.
+        "strict": true,
+        // Enable  checks to ensure that each instance property of a class gets initialized in the constructor body, or by a property initializer. (Strict Class Initialization)
+        "strictPropertyInitialization": true,
+        // Suppress noImplicitAny errors for indexing objects lacking index signatures.
+        "suppressImplicitAnyIndexErrors": true,
+        // In strict null checking mode, the null and undefined values are not in the domain of every type and are only assignable to themselves and any (the one exception being that undefined is also assignable to void).
+        "strictNullChecks": true,
+        // --- Additional Checks ---
+        // Report errors on unused locals.
+        "noUnusedLocals": true,
+        // Report errors on unused parameters.
+        // "noUnusedParameters": true,
+        // Report error when not all code paths in function return a value.
+        "noImplicitReturns": true,
+        // Report errors for fallthrough cases in switch statement.
+        "noFallthroughCasesInSwitch": true
+    },
+    "typedocOptions": {
+        // Should TypeDoc disable the testing and cleaning of the output directory?
+        "disableOutputCheck": false,
+        // Specifies the fully qualified name of the root symbol. Defaults to global namespace.
+        "entryPoint": "main",
+        // Define a pattern for excluded files when specifying paths.
+        "exclude": "**/*.+(spec).ts",
+        // Prevent externally resolved TypeScript files from being documented.
+        "excludeExternals": true,
+        // Prevent symbols that are not exported from being documented.
+        "excludeNotExported": true,
+        // Ignores private variables and methods.
+        "excludePrivate": true,
+        // Do not print the TypeDoc link at the end of the page.
+        "hideGenerator": true,
+        // Should TypeDoc generate documentation pages even after the compiler has returned errors?
+        "ignoreCompilerErrors": false,
+        // Turn on parsing of .d.ts declaration files.
+        "includeDeclarations": false,
+        // Emits a list of broken symbol [[navigation]] links after documentation generation.
+        "listInvalidSymbolLinks": true,
+        // Specifies the output mode the project is used to be compiled with: 'file' or 'modules'
+        "mode": "modules",
+        // Set the name of the project that will be used in the header of the template.
+        "name": "Intrexx",
+        // Specifies the location the documentation should be written to.
+        "out": "docs",
+        // Path to the readme file that should be displayed on the index page. Pass `none` to disable the index page and start the documentation on the globals page.
+        "readme": "none",
+        // Specify the path to the theme that should be used or 'default' or 'minimal' to use built-in themes.
+        "theme": "default",
+        // Print the TypeDoc's version.
+        "version": false
+    }
+}
